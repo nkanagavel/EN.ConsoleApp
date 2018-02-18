@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "TakeOnlineTest";
+    Layout = "~/Views/Shared/_eLearningLayout.cshtml";
+}
+
+<div data-ng-controller="QuestionCtrl">
+
+    @*<div class="jumbotron">
+            <h4>Securus E-Leraning System</h4>
+            <p>Enhance your skills with us...</p>
+        </div>*@
+
+    <div class="card no-radius" style="margin-bottom: 20px;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);" ng-if="showResult == false">
+        <div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 18px;">
+            @*<i class="fa fa-bar-chart-o fa-fw"></i>*@
+            <i class="fa fa-android panel-icon" aria-hidden="true"></i>
+            <b>Online Test </b>
+        </div>
+        <div class="card-body no-radius">
+            <div class="col-md-12" style="margin-top: 15px;">
+                <div class="card no-radius" style="box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                    @*<div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 14px;"> <b>Question #{{question.Id}} : </b>{{question.Question}}</div>
+                        <div class="card-body no-radius">
+
+                            <div data-ng-repeat="opt in question.Options">
+                                <label style="margin-bottom: 0rem;font-size: 14px;">
+                                    <input id="rbQuestions_{{opt.value}}" type="radio" name="optionlist_{{question.Id}}" data-ng-click="SelectAnswer(question.Id,opt.value,question.Answer)"
+                                           value="{{opt.value}}" />
+                                    {{opt.Option}}
+                                </label> <br />
+                            </div>
+
+                            <button class="btn btn-primary no-radius" data-ng-click="submitAnswer(question)"
+                                    style="margin-top: 10px;font-size: 15px;">
+                                Submit Answer
+                            </button>
+                        </div>*@
+
+                    <div class="card-body no-radius">
+                        <table class="table" style="margin:0px auto;font-size: 14px;">
+
+                            <tbody>
+                                <tr>
+                                    <td><label for="Name" class="margin-bottom-0px">IC Number  </label></td>
+                                    <td><input type="text" class="form-control form-control-sm col-md-8" data-ng-model="Name"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="IcNumber" class="margin-bottom-0px">Authendication Key</label></td>
+                                    <td><input type="text" class="form-control form-control-sm col-md-8" data-ng-model="IcNumber"></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td>
+
+                                        <button type="button" class="btn btn-sm btn-primary no-radius"
+                                                style="margin-top: 10px;font-size: 15px;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);" data-ng-click="RegisterUser()">
+                                            <i class="fa fa-tasks"></i> Start Challenge
+                                        </button>
+                                        @*<button type="button" class="btn btn-sm btn-outline-info no-radius" data-ng-click="Reset()"
+                                                    style="margin-top: 10px;font-size: 15px;width: 75px;margin-left: 25px;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                                                Clear
+                                            </button>*@
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <br />
+            </div>
+
+            @*<button class="btn btn-primary no-radius" data-ng-click="CheckResult()"
+                        style="float: right;margin-right: 15px;background-color: #243a51;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                    Show Test Result
+                </button>*@
+        </div>
+    </div>
+</div>
+
+

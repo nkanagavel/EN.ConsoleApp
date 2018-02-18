@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*<title>Securus | E-Learning</title>*@
+    <title>index.html</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: "Open Sans";
+            /*To make the body width as 80%*/
+            width: 86%;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.11);
+            margin: 0 7%;
+            padding-bottom: 10%;
+            /*  padding:0px 10%;
+                margin-bottom : 20px; */
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        dropdown-menu > ul > li:hover {
+            background-color: #868e96;
+        }
+
+        /* ul > li:hover {
+            background-color: #868e96;
+        }
+
+        .active {
+            background-color: yellow;
+        }*/
+
+        .dropdown {
+            position: relative;
+            /** Make it fit tightly around it's children */
+            display: inline-block;
+        }
+
+            .dropdown .dropdown-menu {
+                position: absolute;
+                background-color: #007bff !important;
+                /**
+            * Set the top of the dropdown menu to be positioned 100%
+            * from the top of the container, and aligned to the left.
+            */
+                top: 100%;
+                left: 0;
+                /** Allow no empty space between this and .dropdown */
+                margin: 0;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                /** Show dropdown menu */
+                display: block;
+            }
+
+        .course-box-tab {
+            border-radius: 0 19px 19px 0;
+            box-sizing: border-box;
+            color: #fff;
+            font: 700 18px/38px "Trebuchet MS",verdana,sans-serif;
+            display: block;
+            height: 38px;
+            left: -5px;
+            background: #10a0b6;
+            padding-right: 11px;
+            position: absolute;
+            text-align: right;
+            text-decoration: none;
+            top: 12px;
+            width: 50px;
+            -moz-box-sizing: border-box;
+        }
+
+        .card-title {
+            margin-left: 40px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .btn-take-test {
+            color: #fff;
+            background-color: transparent;
+            background-image: none;
+            border-color: #0ff;
+        }
+
+        .no-radius {
+            border-radius: 0px !important;
+        }
+
+        .panel-icon {
+            width: 1.2em;
+            font-size: 22px;
+        }
+
+        .bg-primary {
+            background-color: #00326D !important;
+        }
+
+        .jumbotron {
+            padding: 1rem 1rem;
+            /*box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);*/
+            margin-bottom: 25px !important;
+        }
+
+        .navbar {
+            padding: .7rem 1rem;
+        }
+
+        .slogan {
+            display: initial;
+            font-size: x-large;
+            font-style: oblique;
+            /*color: #243a51;*/
+            color: #00326D;
+            font-weight: 600;
+        }
+
+        .panel-header-bgcolor {
+            background-color: #0057A7 !important;
+        }
+
+        .highcharts-credits, .highcharts-button, .highcharts-title {
+            display: none;
+        }
+
+        .highcharts-legend-item {
+            font-family: "Open Sans";
+            font-size: 13px !important;
+        }
+
+        .sub-menu-custom {
+            height: 40px;
+            border-bottom: 1px solid #aaa;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+<body data-ng-app="myapp" data-ng-cloak>
+
+    @*<div class="container-fluid">
+        <a class="navbar-brand" href="http://www.securus.com.sg" target="_blank" title="Securus" style="margin-left: 10px;">
+            <img src="http://58.185.211.25/sitevisitwebportal/images/securus.png" alt="logo" style="width:120px;" />
+        </a>
+        <p class="slogan">Enhance your skills with Securus e-Learning System</p>
+    </div>*@
+
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top" style="height: 55px;padding: 0px;">
+        <!-- Brand/logo -->
+        @*<a class="navbar-brand" href="#">
+                <img src="http://58.185.211.25/sitevisitwebportal/images/securus.png" alt="logo" style="width:40px;" />
+
+            </a>*@
+
+        <!-- Links -->
+        <ul class="nav navbar-nav" style="padding: .5rem;height: 55px;margin-top: -.5rem;margin-left: 0%;margin-bottom: -.5rem;">
+            <li class="nav-item" style="padding: 0 10px;">
+                <a class="nav-link" href="/test/sampletest">Index page</a>
+            </li>
+            <li class="nav-item" style="padding: 0 10px;">
+                <a class="nav-link" href="index1.html">Index page 1</a>
+            </li>
+            <li class="nav-item dropdown" style="padding: 0 10px;">
+                <a class="nav-link" href="index2.html">Index page 2</a>
+                <!-- dropdown menu -->
+                <ul class="dropdown-menu"
+                    style="padding: 0px;border: 1px solid #00326D;border-radius: 0px;
+                            background-color:#00326D !important;margin-top: 3px;">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link" style="font-size:13px;">Home</a>
+                    </li>
+                    <li class="nav-item"><a href="#about" class="nav-link" style="font-size:13px;">About</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" style="font-size:13px;">Contact</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" style="right: 0px;position: absolute;margin-right: 10px;">
+            @*<li class="nav-item"><a href="#" class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>*@
+            <li class="nav-item" style="margin-right:10px;">
+                <a class="btn btn-take-test" href="/user/registeruser" style="color: #F57A1B!important;border-color: #F57A1B!important;">Register Now</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-take-test" href="/test/takeonlinetest">
+                    Take Online Test
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div class="container-fluid" style="width:100%;margin-top: 25px;">
+
+        <div class="row">
+            <div class="col-md-2" style="border:1px solid #ccc;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);padding:0px;height:max-content;">
+                <div class="sub-menu-custom">
+                    Course 1
+                </div>
+                <div class="sub-menu-custom">
+                    Course 2
+                </div>
+                <div class="sub-menu-custom">
+                    Course 3
+                </div>
+                <div class="sub-menu-custom">
+                    Course 4
+                </div>
+                <div class="sub-menu-custom">
+                    Course 5
+                </div>
+                <div class="sub-menu-custom">
+                    Take Test
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <div id="crumb" style="font-size:14px;background:#1b75bc;box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.11);">
+                    <ul class="breadcrumb" style="background-color: #1b75bc;color:#fff">
+                        <li>You are here:</li>
+                        <li>
+                            <a href="#">
+                                My Accounts &amp; Profile
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            Account Summary
+                        </li>
+                    </ul>
+                </div>
+
+                @RenderBody()
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>*@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script src="~/app/module.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('ul li a').click(function () {
+            $('li a').removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+</script>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-route.js"></script>
+    <script src="~/Angular/app.module.js"></script>
+    <script src="~/Angular/app.routing.js"></script>
+    <script src="~/Angular/app.controller.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .navbar-brand {
+            padding: 25px 15px;
+        }
+
+
+
+        .navbar-nav > li > a {
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+    </style>
+
+    <script type='text/javascript'>
+        var appInsights = window.appInsights || function (config) {
+            function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } }
+            var t = { config: config }, u = document, e = window, o = 'script', s = u.createElement(o), i, f; for (s.src = config.url || '//az416426.vo.msecnd.net/scripts/a/ai.0.js', u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ['Event', 'Exception', 'Metric', 'PageView', 'Trace', 'Ajax']; i.length;) r('track' + i.pop()); return r('setAuthenticatedUserContext'), r('clearAuthenticatedUserContext'), config.disableExceptionTracking || (i = 'onerror', r('_' + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t['_' + i](config, r, u, e, o), s }), t
+        }({
+            instrumentationKey: 'a0d10ce6-c9c5-4536-b17c-3e700872c462'
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+</head>
+<body ng-app="ENAngularModule">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" style="height: 70px;">
+        <div class="container">
+            @{
+                Html.RenderPartial("_TopMenu");
+            }
+
+        </div>
+    </div>
+    <div class="container body-content" style="margin-top: 20px;">
+        @RenderBody()
+
+
+        <footer style="height: 50px;left: 0px;position: fixed;bottom: 0px;width: 100%; background:#999;">
+            @*<hr />*@
+            <p style="margin-left: 5%;padding: 18px;">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

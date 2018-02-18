@@ -1,0 +1,16 @@
+﻿
+<div ng-controller="homecontroller">
+    <h1 ng-model="Title"></h1>
+</div>
+
+<h1>Contact</h1>
+
+@Html.RouteLink("Click Here To Login","loginpage")
+
+@{
+    var controllername = ViewContext.RouteData.Values["controller"].ToString();
+    var actionname = ViewContext.RouteData.Values["action"].ToString();
+}
+
+@controllername
+@actionname

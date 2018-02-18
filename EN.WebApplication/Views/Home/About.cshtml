@@ -1,0 +1,78 @@
+﻿
+@{
+
+    var controller = ViewContext.RouteData.Values["controller"].ToString();
+    var action = ViewContext.RouteData.Values["action"].ToString();
+}
+
+
+<div class="row" style="margin-top: 10px;overflow-x:auto;">
+    <div class="col-xs-12">
+        <h4 style="text-align: center;text-transform: none;">Attendance Reports</h4>
+        <span style="border-top: 1px solid #7C7C7C;display: block; margin: 0px auto;margin-bottom:15px;
+                padding-bottom: 10px; width: 150px;"></span>
+    </div>
+</div>
+<div class="row" style="margin-top: 10px;">
+
+    <div class="col-xs-12" style="border: 1px solid #cdcdcd;height:60px;">
+        <form id="reportstop" class="form-inline" action="#"></form>
+        @using (Html.BeginForm("GetAttendanceReportPdf", "Home", FormMethod.Post, new { id = "attendance", @class = "form-inline" }))
+        {
+
+            <div class="col-md-8" style="margin-top: 12px;">
+                <div class="col-md-6">
+                    @*<div class="input-group col-md-8">
+                            <input class="form-control date-picker" id="fromDate" name="fromDate" type="text" />
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar bigger-110"></i>
+                            </span>
+                        </div>*@
+                    <select id="attendancemonth" name="attendancemonth" class="form-control" required="" style="border-radius: 0px;width: 100%;">
+                        <option>01-January</option>
+                        <option>02-February</option>
+                        <option>03-March</option>
+                        <option>04-April</option>
+                        <option>05-May</option>
+                        <option>06-June</option>
+                        <option>07-July</option>
+                        <option>08-August</option>
+                        <option>09-September</option>
+                        <option>10-October</option>
+                        <option>11-November</option>
+                        <option>12-December</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    @*<div class="input-group col-md-8">
+                            <input class="form-control date-picker" id="toDate" name="toDate" type="text" />
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar bigger-110"></i>
+                            </span>
+                        </div>*@
+                    <select id="attendanceyear" name="attendanceyear" class="form-control" required="" style="border-radius: 0px;width: 100%;">
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-4" style="margin-top: 12px;">
+                <div class="col-md-12">                    
+                    <input type="hidden" value="" id="hdn-attendance-section" name="hdn-attendance-section" />
+                    <div class="form-group" style="margin-bottom: 15px;width: 100%;">
+                        <button name="Command" id="btnExport" type="submit" class="btn btn-primary btn-md"
+                                value="Export" style="margin-bottom: 15px;width: 50%;">
+                            <i class="fa fa-download" aria-hidden="true" style="padding-right: 5px;"></i>
+                            Export
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

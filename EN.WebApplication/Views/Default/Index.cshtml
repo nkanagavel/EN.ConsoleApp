@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@{
+
+    var controller = ViewContext.RouteData.Values["controller"].ToString();
+    var action = ViewContext.RouteData.Values["action"].ToString();
+}
+
+<h1>@controller</h1><br />
+<h2>@action</h2>

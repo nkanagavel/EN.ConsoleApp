@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "SampleTest";
+    Layout = "~/Views/Shared/_eLearningLayout.cshtml";
+}
+
+
+
+<div data-ng-controller="QuestionCtrl">
+
+    <div class="jumbotron">
+        @*<h4>Securus E-Leraning System</h4>*@
+        <p>Enhance your skills with us...</p>
+    </div>
+
+    <div class="card no-radius" style="margin-bottom: 20px;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);" ng-if="showResult == false">
+        <div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 18px;">
+            @*<i class="fa fa-bar-chart-o fa-fw"></i>*@
+            <i class="fa fa-android panel-icon" aria-hidden="true"></i>
+            <b>Sample </b>
+        </div>
+        <div class="card-body no-radius">
+            <div class="col-md-12" data-ng-repeat="question in Questions">
+                <div class="card no-radius" style="box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                    <div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 14px;"> <b>Question #{{question.Id}} : </b>{{question.Question}}</div>
+                    <div class="card-body no-radius">
+
+                        <div data-ng-repeat="opt in question.Options">
+                            <label style="margin-bottom: 0rem;font-size: 14px;">
+                                <input id="rbQuestions_{{opt.value}}" type="radio" name="optionlist_{{question.Id}}" data-ng-click="SelectAnswer(question.Id,opt.value,question.Answer)"
+                                       value="{{opt.value}}" />
+                                {{opt.Option}}
+                            </label> <br />
+                        </div>
+
+                        <button class="btn btn-primary no-radius" data-ng-click="submitAnswer(question)" 
+                                style="margin-top: 10px;font-size: 15px;">Submit Answer</button>
+                    </div>
+                </div>
+                <br />
+            </div>
+
+            <button class="btn btn-primary no-radius" data-ng-click="CheckResult()"
+                    style="float: right;margin-right: 15px;background-color: #243a51;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                Show Test Result
+            </button>
+        </div>
+
+        @*<div class="card-body no-radius">
+                <div class="col-md-12">
+                    <div class="card no-radius" style="box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                        <div class="card-header bg-primary text-white no-radius"> <b>Tutorial</div>
+                        <div class="card-body no-radius">
+                            <iframe src="https://www.youtube.com/embed/xmLMbwJhD78?rel=0&amp;controls=0&amp;showinfo=0" width="853" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>*@
+
+    </div>
+
+    <div class="card no-radius" style="margin-bottom: 20px;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);" ng-if="showResult == true">
+        <div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 18px;">
+            @*<i class="fa fa-bar-chart-o fa-fw"></i>*@
+            <i class="fa fa-android panel-icon" aria-hidden="true"></i>
+            <b>Score Card </b>
+        </div>
+
+        <div class="card-body no-radius">
+
+            <div class="card-body no-radius">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card no-radius" style="box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                            <div class="card-body no-radius" style="display: inline-flex;">
+                                <div class="col-md-6">
+                                    <table class="table" style="margin-top: 25px;font-size: 14px;">
+                                        <thead>
+                                            <tr>
+                                                <th>Descriptions</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Total Questions</td>
+                                                <td>{{totalQuestion}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Attempted Question</td>
+                                                <td>{{attemptedQuestion}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Un-Attempted Question</td>
+                                                <td>{{missedQuestions}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Correct Answer</td>
+                                                <td>{{totalRightAnswer}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Wrong Answer</td>
+                                                <td>{{totalWrongAnswer}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Result</b></td>
+                                                <td><b>{{Result}}</b></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div id="container">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" data-ng-repeat="question in Questions">
+                <div class="card no-radius" style="box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                    <div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 14px;"> <b>Question #{{question.Id}} : </b>{{question.Question}}</div>
+                    <div class="card-body no-radius">
+
+                        <div data-ng-repeat="opt in question.Options">
+                            <p class="card-text" ng-if="opt.value === question.Answer">
+                                <b>Answer : </b> <span data-ng-bind="opt.Option" style="font-size: 14px;"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

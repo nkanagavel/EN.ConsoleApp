@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "RegisterUser";
+    Layout = "~/Views/Shared/_eLearningLayout.cshtml";
+}
+
+<style>
+    .table td, .table th {
+        vertical-align: middle;
+        font-weight: 500;
+    }
+
+    .margin-bottom-0px {
+        margin-bottom: 0rem;
+    }
+
+    .jumbotron {
+        margin-bottom: 5px !important;
+    }
+
+    .input-box-size {
+        width: 55%;
+    }
+
+    .alert {
+        margin-bottom: .5rem;
+    }
+</style>
+
+<div data-ng-controller="UserCtrl">
+
+    <div class="jumbotron">
+        @*<h4>Securus E-Leraning System</h4>*@
+        <p>Enhance your skills with us...</p>
+    </div>
+
+    @*<div class="card-body no-radius">
+        </div>*@
+    <div class="col-md-12" style="margin-bottom: 20px;padding:0px;">
+        <div class="card no-radius" style="box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+            <div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 14px;">
+                <i class="fa fa-user-plus panel-icon" aria-hidden="true"></i>
+                <b>Register User</b>
+            </div>
+            <div class="card-body no-radius" style="display: inherit;">
+                <input type="hidden" data-ng-model="Id" />
+                <div class="col-md-7">
+                    <table class="table" style="margin:0px auto;font-size: 14px;">
+
+                        <tbody>
+                            <tr>
+                                <td><label for="Name" class="margin-bottom-0px">Name</label></td>
+                                <td><input type="text" class="form-control form-control-sm" data-ng-model="Name"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="IcNumber" class="margin-bottom-0px">Ic Number</label></td>
+                                <td><input type="text" class="form-control form-control-sm" data-ng-model="IcNumber"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="Phonenumber" class="margin-bottom-0px">Contact Number</label></td>
+                                <td><input type="text" class="form-control form-control-sm" data-ng-model="Phonenumber"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="MailId" class="margin-bottom-0px">E-mail Id</label></td>
+                                <td><input type="text" class="form-control form-control-sm" data-ng-model="MailId"></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td>
+
+                                    <button type="button" class="btn btn-sm btn-primary no-radius" data-ng-click="RegisterUser()"
+                                            style="margin-top: 10px;font-size: 15px;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);width: 75px;">
+                                        <i class="fa fa-plus"></i> Add
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-outline-info no-radius" data-ng-click="Reset()"
+                                            style="margin-top: 10px;font-size: 15px;width: 75px;margin-left: 25px;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                                        <i class="fa fa-university"></i>
+                                        Clear
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="card no-radius" style="box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+                        <div class="card-header bg-primary text-white no-radius panel-header-bgcolor" style="font-size: 14px;">
+                            <i class="fa fa-database" aria-hidden="true" style="padding-right: 5px"></i>
+                            <b>User List</b>
+                        </div>
+                        <div class="card-body no-radius">
+                            <input type="text" class="form-control form-control-sm" ng-model="SearchText" onfocus="this.value='';"
+                                   placeholder="search user by name" style="margin-bottom: .5rem;">
+                            <div data-ng-repeat="user in Users | filter : SearchText">
+
+                                <div class="alert alert-dark form-control-sm">
+                                    <button type="button" class="close" style="font-size: 20px;padding-left: 5px;">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="close" data-id="{{user.Id}}" data-ng-click="GetUserById(user)" style="padding-right: 5px;font-size: 20px;border-right: 1px solid #0057A7 ;">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </button>
+                                    <strong>{{user.Name}}</strong>
+                                    <strong>{{user.IcNumber}}</strong>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    @*<button class="btn btn-primary no-radius" data-ng-click="CheckResult()"
+                style="float: right;margin-right: 15px;background-color: #243a51;box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);">
+            Show Test Result
+        </button>*@
+</div>
+
+
+
